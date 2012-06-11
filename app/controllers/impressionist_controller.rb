@@ -54,6 +54,7 @@ module ImpressionistController
 
     # creates the query to check for uniqueness
     def unique_query(unique_opts)
+      puts unique_opts
       full_statement = direct_create_statement
       # reduce the full statement to the params we need for the specified unique options
       unique_opts.reduce({}) do |query, param|
