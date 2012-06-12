@@ -15,7 +15,7 @@ module ImpressionistController
     def impressionist(obj,message=nil,opts={})
       unless bypass
         if obj.respond_to?("impressionable?")
-          if unique_instance?(obj, opts[:unique])
+          if true || unique_instance?(obj, opts[:unique])
             obj.impressions.create(associative_create_statement({:message => message}))
           end
         else
@@ -54,7 +54,7 @@ module ImpressionistController
 
     # creates the query to check for uniqueness
     def unique_query(unique_opts)
-      puts unique_opts
+      #puts unique_opts
       full_statement = direct_create_statement
       # reduce the full statement to the params we need for the specified unique options
       unique_opts.reduce({}) do |query, param|
